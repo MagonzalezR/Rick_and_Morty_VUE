@@ -1,22 +1,26 @@
 <template>
-  <va-navbar color="#20A707" shape class="mb-2" >
-    <template #left>
-      <va-navbar-item><router-link to="/"><img class="logo" src="@/assets/RickYMorty.png" alt=""></router-link></va-navbar-item>
-    </template>
-    <template #center >
-      <va-navbar-item >
-        <router-link to="/">Episodes  |</router-link>
-        <router-link to="/Locations">Locations  |</router-link>
-        <router-link to="/Characters">Characters</router-link>
-    </va-navbar-item>
-    </template>
-    <template #right>
-      <va-navbar-item><router-link to="/"><img class="logo" src="@/assets/RickYMorty.png" alt=""></router-link></va-navbar-item>
-    </template>
-  </va-navbar>
-  <nav>
-    
-  </nav>
+  <va-affix :offset-top="0">
+    <div >
+      <va-navbar color="#093015" shape class="mb-2">
+        <template #left>
+          <va-navbar-item
+            ><router-link to="/"
+              ><img
+                class="logo"
+                src="@/assets/RickYMorty.png"
+                alt="" /></router-link
+          ></va-navbar-item>
+        </template>
+        <template #center>
+          <va-navbar-item>
+            <router-link to="/Episodes" class="ancla">Episodes |</router-link>
+            <router-link to="/Locations" class="ancla">Locations |</router-link>
+            <router-link to="/Characters" class="ancla">Characters</router-link>
+          </va-navbar-item>
+        </template>
+      </va-navbar>
+    </div>
+  </va-affix>
   <router-view />
 </template>
 
@@ -38,31 +42,23 @@ nav a {
   color: #ffff;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.ancla {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 1.1rem;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.va-navbar {
-  --va-navbar-height: 4.0625rem;
-  --va-navbar-padding-left: 1rem;
-  --va-navbar-padding-right: 1rem;
-  --va-navbar-transition: background-color 0.3s ease; 
-
-  
-  --va-navbar-sm-padding: 1.1875rem 1rem 1rem;
-
-  
-  --va-navbar-shape-width: 33%;
-  --va-navbar-shape-max-width: 467px;
-  --va-navbar-shape-bg: var(--va-dark-blue);
-  --va-navbar-shape-border-left: 3.1875rem solid transparent;
-  --va-navbar-shape-border-right: 3.1875rem solid transparent;
-  --va-navbar-shape-transition: border-top-color 0.3s ease; 
-
-  
-  --va-navbar-item-margin: 0.75rem;
-  --va-navbar-item-margin-side: calc(2 * var(--va-navbar-item-margin));
+.ancla:visited {
+  color: #10ad40 !important;
 }
-.logo{
-  height: 80px;
+.ancla:focus {
+  background-color: #4d7951ee;
+  color: #dcf1f0 !important;
+}
+.logo {
+  height: 50px;
 }
 </style>

@@ -17,7 +17,7 @@
         v-model.number="currentPage"
       />
       <va-data-table
-        :items="locations"
+        :items="episodes"
         :columns="columns"
         :animated="true"
         :per-page="perPage"
@@ -44,11 +44,11 @@ export default defineComponent({
     const columns = [
       { key: "id", sortable: true, width: "10%" },
       { key: "name", sortable: true, width: "30%" },
-      { key: "dimension", sortable: true, width: "40%" },
-      { key: "type", sortable: true, width: "20%" },
+      { key: "air_date", sortable: true, width: "40%" },
+      { key: "episode", sortable: true, width: "20%" },
     ];
     return {
-      locations: [],
+      episodes: [],
       columns,
       perPage: 10,
       currentPage: 1,
@@ -59,9 +59,9 @@ export default defineComponent({
   methods: {
     getData() {
       this.axios
-        .get("https://rickandmortyapi.com/api/location")
+        .get("https://rickandmortyapi.com/api/episode")
         .then((response) => {
-          this.locations = response.data.results;
+          this.episodes = response.data.results;
           this.filtered = response.data.results;
           console.log(response.data);
         });
@@ -70,7 +70,7 @@ export default defineComponent({
   mounted() {
     this.getData();
   },
-  computed: {
+   computed: {
     pages () {
       return (this.perPage && this.perPage !== 0)
         ? Math.ceil(this.filtered.length / this.perPage)
@@ -80,8 +80,6 @@ export default defineComponent({
 });
 </script>
 <style>
- .table-example--pagination {
-    text-align: center;
-    text-align: -webkit-center;
-  }
+
+
 </style>
