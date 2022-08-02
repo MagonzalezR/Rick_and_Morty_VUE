@@ -1,9 +1,27 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <va-affix :offset-top="0">
+    <div >
+      <va-navbar color="#093015" shape class="mb-2">
+        <template #left>
+          <va-navbar-item
+            ><router-link to="/"
+              ><img
+                class="logo"
+                src="@/assets/RickYMorty.png"
+                alt="" /></router-link
+          ></va-navbar-item>
+        </template>
+        <template #center>
+          <va-navbar-item>
+            <router-link to="/Episodes" class="ancla">Episodes |</router-link>
+            <router-link to="/Locations" class="ancla">Locations |</router-link>
+            <router-link to="/Characters" class="ancla">Characters</router-link>
+          </va-navbar-item>
+        </template>
+      </va-navbar>
+    </div>
+  </va-affix>
+  <router-view />
 </template>
 
 <style>
@@ -21,10 +39,26 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffff;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.ancla {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 1.1rem;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ancla:visited {
+  color: #10ad40 !important;
+}
+.ancla:focus {
+  background-color: #4d7951ee;
+  color: #dcf1f0 !important;
+}
+.logo {
+  height: 50px;
 }
 </style>
