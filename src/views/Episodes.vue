@@ -21,6 +21,7 @@
         :current-page="currentPage"
         :filter="filter"
         :clickable="true"
+        :row-bind="getRowBind"
         @filtered="filtered = $event.items"
         @row:click="handleClick"
       >
@@ -128,6 +129,19 @@ export default defineComponent({
       this.rowId = event.item.id
       this.abrirModalPersonaje()
     },
+    getRowBind(row) {
+      const classes = ["RowClass_1"];
+      if (row.episode.startsWith("S01")) {
+        classes.push(["RowClass_2"]);
+      } else if (row.episode.startsWith("S02")) {
+        classes.push({ RowClass_3: true });
+      }else if (row.episode.startsWith("S03")) {
+        classes.push({ RowClass_4: true });
+      }else {
+        classes.push({ RowClass_5: true });
+      }
+      return { class: classes };
+    },
   },
   mounted() {
     this.getData();
@@ -141,10 +155,28 @@ export default defineComponent({
   },
 });
 </script>
-<style>
+<style >
 .paginacion {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;
+}
+.RowClass_1 {
+  color: darkblue;
+}
+
+.RowClass_2 {
+  background-color: rgb(205, 242, 174);
+}
+
+.RowClass_3 {
+  background-color:rgb(236, 108, 108);
+}
+
+.RowClass_4 {
+  background-color: rgb(213, 187, 241);
+}
+.RowClass_5 {
+  background-color: rgb(241, 165, 216);
 }
 </style>
