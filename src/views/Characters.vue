@@ -19,9 +19,7 @@
           >{{ index }}. {{ personaje.name }}</va-card-title
         >
         <va-card-content
-          >{{ personaje.name }}.<br />{{ personaje.species }}<br />{{
-            personaje.status
-          }}</va-card-content
+          >{{ personaje.name }}.<br />{{ personaje.species }} - {{personaje.status}}</va-card-content
         >
       </va-card>
     </div>
@@ -141,7 +139,7 @@ export default {
   },
 };
 </script>
-<style>
+<style >
 .tarjeta {
   border: 1px;
   margin: 20px;

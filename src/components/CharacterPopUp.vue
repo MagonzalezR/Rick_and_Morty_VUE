@@ -8,7 +8,7 @@
             class="modal-form"
             @submit.prevent="filtrarPor"
           >
-            <va-input  class="mt-3" label="Nombre" v-model="nombre" />
+            <va-input  class="mt-3" label="Name" v-model="nombre" />
 
             <va-select
               class="mt-3"
