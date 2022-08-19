@@ -1,4 +1,5 @@
 # final_vue
+This is a rick and morty wiki made to learn how to use VUE and get information from an API
 
 ## Project setup
 ```
